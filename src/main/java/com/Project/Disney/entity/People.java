@@ -1,7 +1,9 @@
 package com.Project.Disney.entity;
 
+import com.Project.Disney.entity.more.Active;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
@@ -24,7 +26,8 @@ public class People {
     @NotBlank
     @Column(unique = true)
     private String email;
-    @NotBlank
-    private Character active;
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private Active active;
 
 }
