@@ -6,6 +6,8 @@ import com.Project.Disney.repository.PeopleRepository;
 import com.Project.Disney.web.dto.PeopleRequestDto;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PeopleService {
 
@@ -28,5 +30,9 @@ public class PeopleService {
         people.setPlan(plan);
 
         return repository.save(people);
+    }
+
+    public List<People> findAll() {
+        return repository.findAll();
     }
 }

@@ -1,6 +1,5 @@
 package com.Project.Disney.web.dto;
 
-import com.Project.Disney.entity.Plan;
 import com.Project.Disney.entity.more.Active;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
