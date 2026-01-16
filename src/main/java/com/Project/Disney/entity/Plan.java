@@ -1,11 +1,13 @@
 package com.Project.Disney.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -23,4 +25,7 @@ public class Plan {
     private String name;
     @NotNull
     private BigDecimal price;
+    @OneToMany(mappedBy = "plan")
+    @JsonIgnore
+    private List<People> people;
 }
