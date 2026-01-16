@@ -4,6 +4,8 @@ import com.Project.Disney.entity.Plan;
 import com.Project.Disney.repository.PlanRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PlanService {
 
@@ -15,5 +17,9 @@ public class PlanService {
 
     public Plan create(Plan plan) {
         return repository.save(plan);
+    }
+
+    public List<Plan> findAll() {
+        return repository.findAll();
     }
 }
