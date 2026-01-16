@@ -22,4 +22,8 @@ public class PlanService {
     public List<Plan> findAll() {
         return repository.findAll();
     }
+
+    public Plan findById(Long id) {
+        return repository.findById(id).get();
+    }
 }
