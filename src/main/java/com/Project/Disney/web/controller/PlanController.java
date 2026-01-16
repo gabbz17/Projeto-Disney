@@ -20,7 +20,7 @@ public class PlanController {
     @PostMapping
     public ResponseEntity<Plan> create(@RequestBody Plan plan) {
         Plan plan_created = service.create(plan);
-        return ResponseEntity.ok(plan_created);
+        return ResponseEntity.status(201).body(plan_created);
     }
 
     @GetMapping
