@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -29,5 +30,8 @@ public class People {
     @NotNull
     @Enumerated(EnumType.STRING)
     private Active active;
+    @ManyToOne
+    @JoinColumn(name = "plan_id")
+    private Plan plan;
 
 }
