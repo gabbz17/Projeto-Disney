@@ -2,8 +2,10 @@ package com.Project.Disney.entity;
 
 import com.Project.Disney.entity.more.Active;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 
@@ -23,9 +25,11 @@ public class People {
     private String name;
     @NotBlank
     @Column(unique = true)
+    @Size(min = 11, max = 11, message = "Informe um valor de CPF válido!")
     private String cpf;
     @NotBlank
     @Column(unique = true)
+    @Email
     private String email;
     @NotNull
     @Enumerated(EnumType.STRING)
