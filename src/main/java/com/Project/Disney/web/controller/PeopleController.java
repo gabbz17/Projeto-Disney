@@ -3,6 +3,8 @@ package com.Project.Disney.web.controller;
 import com.Project.Disney.entity.People;
 import com.Project.Disney.service.PeopleService;
 import com.Project.Disney.web.dto.PeopleRequestDto;
+import com.Project.Disney.web.dto.PeopleResponseDto;
+import com.Project.Disney.web.mapper.PeopleMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,5 +30,12 @@ public class PeopleController {
     public ResponseEntity<List<People>> findAll() {
         List<People> getAll = service.findAll();
         return ResponseEntity.ok(getAll);
+    }
+
+    @GetMapping("/id/{id}")
+    public ResponseEntity<PeopleResponseDto> findById(@PathVariable Long id) {
+        People getById = service.findById(id);
+        PeopleResponseDto dto = PeopleMapper.toDto(getById);
+        return ResponseEntity.ok(dto);
     }
 }
