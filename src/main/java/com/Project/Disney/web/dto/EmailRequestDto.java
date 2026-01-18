@@ -1,4 +1,7 @@
 package com.Project.Disney.web.dto;
 
-public record EmailRequestDto() {
+public record EmailRequestDto(
+        String name,
+        String email
+) {
 }
