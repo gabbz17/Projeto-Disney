@@ -34,8 +34,7 @@ public class PeopleController {
 
     @GetMapping("/id/{id}")
     public ResponseEntity<PeopleResponseDto> findById(@PathVariable Long id) {
-        People getById = service.findById(id);
-        PeopleResponseDto dto = PeopleMapper.toDto(getById);
-        return ResponseEntity.ok(dto);
+        PeopleResponseDto getById = service.findById(id);
+        return ResponseEntity.ok(getById);
     }
 }
