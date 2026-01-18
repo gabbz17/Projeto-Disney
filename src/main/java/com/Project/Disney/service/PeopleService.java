@@ -4,6 +4,8 @@ import com.Project.Disney.entity.People;
 import com.Project.Disney.entity.Plan;
 import com.Project.Disney.repository.PeopleRepository;
 import com.Project.Disney.web.dto.PeopleRequestDto;
+import com.Project.Disney.web.dto.PeopleResponseDto;
+import com.Project.Disney.web.mapper.PeopleMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,7 +38,9 @@ public class PeopleService {
         return repository.findAll();
     }
 
-    public People findById(Long id) {
-        return repository.findById(id).get();
+    public PeopleResponseDto findById(Long id) {
+        People people = repository.findById(id).get();
+
+        return PeopleMapper.toDto(people);
     }
 }
