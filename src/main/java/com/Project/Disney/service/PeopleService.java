@@ -2,6 +2,7 @@ package com.Project.Disney.service;
 
 import com.Project.Disney.entity.People;
 import com.Project.Disney.entity.Plan;
+import com.Project.Disney.exception.IdNotFoundException;
 import com.Project.Disney.repository.PeopleRepository;
 import com.Project.Disney.web.dto.PeopleRequestDto;
 import com.Project.Disney.web.dto.PeopleResponseDto;
@@ -39,7 +40,8 @@ public class PeopleService {
     }
 
     public PeopleResponseDto findById(Long id) {
-        People people = repository.findById(id).get();
+        People people = repository.findById(id).orElseThrow(() ->
+                new IdNotFoundException("Cliente não encontrado!"));
 
         return PeopleMapper.toDto(people);
     }
