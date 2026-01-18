@@ -28,4 +28,10 @@ public class PlanController {
         List<Plan> get_all = service.findAll();
         return ResponseEntity.ok(get_all);
     }
+
+    @GetMapping("/id/{id}")
+    public ResponseEntity<Plan> findById(@PathVariable Long id) {
+        Plan get = service.findById(id);
+        return ResponseEntity.ok(get);
+    }
 }
