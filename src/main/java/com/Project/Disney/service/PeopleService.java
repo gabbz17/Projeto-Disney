@@ -35,4 +35,8 @@ public class PeopleService {
     public List<People> findAll() {
         return repository.findAll();
     }
+
+    public People findById(Long id) {
+        return repository.findById(id).get();
+    }
 }
